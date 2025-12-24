@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Free Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Resume Builder</h1>
+
+<div class="container">
+
+    <!-- FORM SECTION -->
+    <div class="form-box">
+
+        <label>Upload Photo</label>
+        <input type="file" id="photo" accept="image/*">
+
+        <label>Full Name</label>
+        <input type="text" id="name">
+
+        <label>Email</label>
+        <input type="email" id="email">
+
+        <label>Phone</label>
+        <input type="text" id="phone">
+
+        <label>Skills</label>
+        <textarea id="skills"></textarea>
+
+        <label>Education</label>
+        <textarea id="education"></textarea>
+
+        <label>About Me</label>
+        <textarea id="about"></textarea>
+
+        <label>Career Objective</label>
+        <textarea id="objective"></textarea>
+
+        <label>Strengths</label>
+        <textarea id="strengths"></textarea>
+
+        <button type="button" onclick="generateResume()">Generate Resume</button>
+        <button type="button" onclick="downloadResume()">Download PDF</button>
+
+    </div>
+
+    <!-- RESUME PREVIEW -->
+    <div class="resume" id="resume">
+
+        <!-- LEFT SIDE -->
+        <div class="left">
+            <img id="r-photo" src="" alt="Photo">
+
+            <h3>Education</h3>
+            <p id="r-education"></p>
+
+            <h3>Professional Strengths</h3>
+            <p id="r-strengths"></p>
+
+           
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="right">
+            <h1 id="r-name"></h1>
+            <p id="r-email"></p>
+            <p id="r-phone"></p>
+
+            <h3>About Me</h3>
+            <p id="r-about"></p>
+
+            <h3>Career Objective</h3>
+            <p id="r-objective"></p>
+
+            <h3>Skills</h3>
+            <p id="r-skills"></p>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
