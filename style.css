@@ -1,166 +1,139 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-/* RESET */
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #e9ecf1;
+body {
+  margin: 0;
+  padding: 0;
+  background: #f2f4f8;
 }
 
-/* HEADING (SCREEN ONLY) */
 h1 {
-    text-align: center;
-    margin: 10px 0;
+  text-align: center;
 }
 
-/* PAGE LAYOUT */
+/* TOP LINKS */
+p {
+  text-align: center;
+}
+
+/* MAIN CONTAINER */
 .container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 20px;
+  padding: 15px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* ================= FORM ================= */
+/* FORM SECTION */
 .form-box {
-    width: 360px;
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+  width: 100%;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
 }
 
-.form-box label {
-    display: block;
-    margin-top: 10px;
-    font-weight: 600;
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
 }
 
-.form-box input,
-.form-box textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 6px;
-    border: 1px solid #cfd6df;
-    font-size: 14px;
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
 }
 
-.form-box textarea {
-    resize: vertical;
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.form-box button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 12px;
-    background: #0d6efd;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
-    cursor: pointer;
+button:hover {
+  background: #0056b3;
 }
 
-.form-box button:hover {
-    background: #0b5ed7;
-}
-
-/* ================= RESUME (A4 FIXED) ================= */
+/* RESUME PREVIEW */
 .resume {
-    width: 794px;        /* A4 width */
-    height: 1123px;      /* A4 height */
-    background: #ffffff;
-    display: flex;
-    margin: 0;           /* 🔥 IMPORTANT */
+  width: 100%;
+  display: flex;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-/* LEFT PANEL */
+/* LEFT SIDE */
 .left {
-    width: 32%;
-    background: #2f3d4c;
-    color: #ffffff;
-    padding: 30px 20px;
-    text-align: center;
+  width: 35%;
+  background: #2f3e4e;
+  color: white;
+  padding: 15px;
+  text-align: center;
 }
 
-#r-photo {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid #ffffff;
-    margin-bottom: 20px;
+.left img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
 }
 
 .left h3 {
-    margin-top: 25px;
-    font-size: 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.35);
-    padding-bottom: 6px;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 5px;
+  margin-top: 20px;
 }
 
-.left p {
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-/* RIGHT PANEL */
+/* RIGHT SIDE */
 .right {
-    width: 68%;
-    padding: 40px;
+  width: 65%;
+  padding: 20px;
 }
 
 .right h1 {
-    margin: 0;
-    font-size: 30px;
-    color: #2f3d4c;
-}
-
-#r-email,
-#r-phone {
-    font-size: 14px;
-    color: #555;
-    margin: 4px 0;
+  margin-top: 0;
 }
 
 .right h3 {
-    margin-top: 28px;
-    font-size: 18px;
-    color: #2f3d4c;
-    border-bottom: 2px solid #2f3d4c;
-    padding-bottom: 6px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
 }
 
-.right p {
-    font-size: 15px;
-    line-height: 1.7;
-    margin-top: 8px;
-}
+/* ========================= */
+/* 📱 MOBILE RESPONSIVE */
+/* ========================= */
 
-/* ================= PDF / PRINT FIX ================= */
-@media print {
-    body {
-        margin: 0;
-        padding: 0;
-        background: #ffffff;
-    }
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
 
-    h1 {
-        display: none;
-    }
+  .resume {
+    flex-direction: column;
+  }
 
-    .container {
-        padding: 0;
-        margin: 0;
-    }
+  .left,
+  .right {
+    width: 100%;
+  }
 
-    .resume {
-        margin: 0;
-        box-shadow: none;
-    }
+  .left img {
+    width: 100px;
+    height: 100px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
 }
