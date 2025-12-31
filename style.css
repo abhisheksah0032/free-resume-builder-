@@ -1,139 +1,37 @@
-* {
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+function generateResume() {
+  document.getElementById("r-name").innerText =
+    document.getElementById("name").value || "Your Name";
+
+  document.getElementById("r-email").innerText =
+    document.getElementById("email").value;
+
+  document.getElementById("r-phone").innerText =
+    document.getElementById("phone").value;
+
+  document.getElementById("r-about").innerText =
+    document.getElementById("about").value;
+
+  document.getElementById("r-objective").innerText =
+    document.getElementById("objective").value;
+
+  document.getElementById("r-skills").innerText =
+    document.getElementById("skills").value;
+
+  document.getElementById("r-education").innerText =
+    document.getElementById("education").value;
+
+  document.getElementById("r-strengths").innerText =
+    document.getElementById("strengths").value;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: #f2f4f8;
-}
-
-h1 {
-  text-align: center;
-}
-
-/* TOP LINKS */
-p {
-  text-align: center;
-}
-
-/* MAIN CONTAINER */
-.container {
-  display: flex;
-  gap: 20px;
-  padding: 15px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-/* FORM SECTION */
-.form-box {
-  width: 100%;
-  background: #fff;
-  padding: 15px;
-  border-radius: 8px;
-}
-
-label {
-  font-weight: bold;
-  display: block;
-  margin-top: 10px;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #0056b3;
-}
-
-/* RESUME PREVIEW */
-.resume {
-  width: 100%;
-  display: flex;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* LEFT SIDE */
-.left {
-  width: 35%;
-  background: #2f3e4e;
-  color: white;
-  padding: 15px;
-  text-align: center;
-}
-
-.left img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid white;
-}
-
-.left h3 {
-  border-bottom: 1px solid #aaa;
-  padding-bottom: 5px;
-  margin-top: 20px;
-}
-
-/* RIGHT SIDE */
-.right {
-  width: 65%;
-  padding: 20px;
-}
-
-.right h1 {
-  margin-top: 0;
-}
-
-.right h3 {
-  border-bottom: 2px solid #333;
-  padding-bottom: 5px;
-}
-
-/* ========================= */
-/* 📱 MOBILE RESPONSIVE */
-/* ========================= */
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
+/* PHOTO PREVIEW */
+document.getElementById("photo").addEventListener("change", function () {
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      document.getElementById("r-photo").src = e.target.result;
+    };
+    reader.readAsDataURL(file);
   }
-
-  .resume {
-    flex-direction: column;
-  }
-
-  .left,
-  .right {
-    width: 100%;
-  }
-
-  .left img {
-    width: 100px;
-    height: 100px;
-  }
-
-  h1 {
-    font-size: 22px;
-  }
-}
+});
