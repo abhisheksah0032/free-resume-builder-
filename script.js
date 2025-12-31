@@ -1,51 +1,37 @@
-/* ================= DATA BINDING ================= */
 function generateResume() {
-    setText("r-name", "name");
-    setText("r-email", "email");
-    setText("r-phone", "phone");
-    setText("r-skills", "skills");
-    setText("r-education", "education");
-    setText("r-about", "about");
-    setText("r-objective", "objective");
-    setText("r-strengths", "strengths");
+  document.getElementById("r-name").innerText =
+    document.getElementById("name").value || "Your Name";
+
+  document.getElementById("r-email").innerText =
+    document.getElementById("email").value;
+
+  document.getElementById("r-phone").innerText =
+    document.getElementById("phone").value;
+
+  document.getElementById("r-about").innerText =
+    document.getElementById("about").value;
+
+  document.getElementById("r-objective").innerText =
+    document.getElementById("objective").value;
+
+  document.getElementById("r-skills").innerText =
+    document.getElementById("skills").value;
+
+  document.getElementById("r-education").innerText =
+    document.getElementById("education").value;
+
+  document.getElementById("r-strengths").innerText =
+    document.getElementById("strengths").value;
 }
 
-function setText(resumeId, inputId) {
-    document.getElementById(resumeId).innerText =
-        document.getElementById(inputId).value;
-}
-
-/* ================= PHOTO UPLOAD ================= */
+/* PHOTO PREVIEW */
 document.getElementById("photo").addEventListener("change", function () {
-    const file = this.files[0];
-    if (!file) return;
-
+  const file = this.files[0];
+  if (file) {
     const reader = new FileReader();
-    reader.onload = function () {
-        document.getElementById("r-photo").src = reader.result;
+    reader.onload = function (e) {
+      document.getElementById("r-photo").src = e.target.result;
     };
     reader.readAsDataURL(file);
+  }
 });
-
-/* ================= PDF DOWNLOAD (NO GAP) ================= */
-function downloadResume() {
-    const resume = document.getElementById("resume");
-
-    const options = {
-        margin: 0,
-        filename: "resume.pdf",
-        image: { type: "jpeg", quality: 1 },
-        html2canvas: {
-            scale: 3,
-            useCORS: true,
-            scrollY: 0   // 🔥 IMPORTANT
-        },
-        jsPDF: {
-            unit: "px",
-            format: [794, 1123], // A4 exact
-            orientation: "portrait"
-        }
-    };
-
-    html2pdf().set(options).from(resume).save();
-}
