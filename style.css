@@ -1,26 +1,29 @@
-/* ========== RESET ========== */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* ========== BODY ========== */
+/* BODY */
 body {
-  background: #f5f7fb;
+  background: #f4f6fb;
   color: #1f2937;
   line-height: 1.6;
 }
 
-/* ========== HEADER ========== */
+/* HEADER */
 .header {
-  max-width: 1200px;
-  margin: auto;
-  padding: 16px 20px;
+  background: #ffffff;
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo {
@@ -30,9 +33,9 @@ body {
 }
 
 .header nav a {
-  margin-left: 16px;
   text-decoration: none;
-  font-weight: 500;
+  margin-left: 18px;
+  font-size: 14px;
   color: #374151;
 }
 
@@ -40,66 +43,75 @@ body {
   color: #2563eb;
 }
 
-/* ========== HERO ========== */
+/* HERO */
 .hero {
-  max-width: 900px;
-  margin: 40px auto 20px;
   text-align: center;
-  padding: 0 20px;
+  padding: 60px 20px 40px;
 }
 
 .hero h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 12px;
 }
 
 .hero p {
-  color: #6b7280;
+  max-width: 600px;
+  margin: auto;
   font-size: 16px;
+  color: #4b5563;
 }
 
-/* ========== INTRO BOX ========== */
-.intro-box,
-div[style*="max-width:900px"] {
+/* INTRO SECTION */
+.intro-section {
   max-width: 900px;
-  margin: 20px auto;
+  margin: 30px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.intro-section h2 {
+  margin-bottom: 12px;
+}
+
+.intro-section p {
+  margin-bottom: 10px;
+  color: #374151;
+}
+
+/* MAIN CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  padding: 0 20px;
+}
+
+/* FORM */
+.form-box {
   background: #ffffff;
   padding: 22px;
   border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-}
-
-/* ========== MAIN CONTAINER ========== */
-.container {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-/* ========== FORM ========== */
-.form-box {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
 
 .form-box label {
   display: block;
-  margin-top: 14px;
-  font-weight: 600;
+  margin-top: 12px;
   font-size: 14px;
+  font-weight: 600;
 }
 
 .form-box input,
 .form-box textarea {
   width: 100%;
   margin-top: 6px;
-  padding: 10px 12px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 8px;
   border: 1px solid #d1d5db;
   font-size: 14px;
 }
@@ -110,11 +122,11 @@ div[style*="max-width:900px"] {
 }
 
 .form-box button {
-  width: 100%;
-  margin-top: 16px;
+  margin-top: 15px;
   padding: 12px;
-  border-radius: 12px;
+  width: 100%;
   border: none;
+  border-radius: 10px;
   background: #2563eb;
   color: #ffffff;
   font-size: 15px;
@@ -126,54 +138,53 @@ div[style*="max-width:900px"] {
   background: #1d4ed8;
 }
 
-/* ========== RESUME CARD ========== */
+/* RESUME PREVIEW */
 .resume {
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: 35% 65%;
   overflow: hidden;
-  display: flex;
   box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
 
 /* LEFT PANEL */
 .left {
-  width: 35%;
-  background: #111827;
+  background: #1f2937;
   color: #ffffff;
-  padding: 22px;
+  padding: 20px;
   text-align: center;
 }
 
 .left img {
   width: 110px;
   height: 110px;
-  border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 14px;
-  border: 3px solid #ffffff;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  margin-bottom: 15px;
 }
 
 .left h3 {
-  margin-top: 18px;
-  font-size: 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.25);
-  padding-bottom: 4px;
+  margin-top: 20px;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 6px;
 }
 
 .left p {
   font-size: 14px;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 /* RIGHT PANEL */
 .right {
-  width: 65%;
-  padding: 22px;
+  padding: 25px;
 }
 
 .right h1 {
-  font-size: 24px;
-  margin-bottom: 4px;
+  font-size: 26px;
+  font-weight: 700;
 }
 
 .right p {
@@ -182,28 +193,28 @@ div[style*="max-width:900px"] {
 }
 
 .right h3 {
-  margin-top: 14px;
-  font-size: 15px;
-  border-bottom: 2px solid #e5e7eb;
+  margin-top: 18px;
+  font-size: 16px;
+  border-bottom: 2px solid #2563eb;
+  display: inline-block;
   padding-bottom: 4px;
 }
 
-/* ========== MOBILE ========== */
-@media (max-width: 900px) {
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
   .container {
     grid-template-columns: 1fr;
   }
 
   .resume {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
-  .left,
-  .right {
-    width: 100%;
-  }
-
-  .hero h1 {
-    font-size: 28px;
+  .left {
+    text-align: center;
   }
 }
