@@ -115,11 +115,17 @@ div[style*="max-width:900px"] {
   padding: 12px;
   border-radius: 12px;
   border: none;
-  background: #2563eb;
   color: #ffffff;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+}
+.form-box button:last-child {
+  background: #10b981;
+}
+
+.form-box button:last-child:hover {
+  background: #059669;
 }
 
 .form-box button:hover {
@@ -213,3 +219,4 @@ div[style*="max-width:900px"] {
   color: #6b7280;
   font-size: 14px;
 }
+
