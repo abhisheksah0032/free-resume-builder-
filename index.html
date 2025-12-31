@@ -1,193 +1,122 @@
-/* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Free Resume Builder | ResumeCraft</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
 
-/* ===== BODY ===== */
-body {
-  background: #f5f7fb;
-  color: #1f2937;
-  line-height: 1.6;
-}
+<body>
 
-/* ===== HEADER ===== */
-.header {
-  max-width: 1200px;
-  margin: auto;
-  padding: 16px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="logo">ResumeCraft</div>
+  <nav>
+    <a href="about2.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="contact.html">Contact</a>
+    <a href="disclaimer.html">Disclaimer</a>
+  </nav>
+</header>
 
-.logo {
-  font-size: 22px;
-  font-weight: 700;
-  color: #2563eb;
-}
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <h1>Create Your Resume in Minutes</h1>
+  <p>
+    A simple and free resume builder for students and freshers.<br>
+    No signup, no payment. Just fill details and download PDF.
+  </p>
+</section>
 
-.header nav a {
-  margin-left: 16px;
-  text-decoration: none;
-  color: #374151;
-  font-weight: 500;
-}
+<!-- ===== INTRO ===== -->
+<div class="intro-box">
+  <h2>Free Resume Builder for Students and Freshers</h2>
+  <p>
+    This free resume builder helps students, freshers, and job seekers
+    create professional resumes online without any cost.
+  </p>
+  <p>
+    You can easily enter your details, upload a photo, preview your resume live,
+    and download it as a PDF.
+  </p>
+</div>
 
-.header nav a:hover {
-  color: #2563eb;
-}
+<!-- ===== MAIN ===== -->
+<div class="container">
 
-/* ===== HERO ===== */
-.hero {
-  text-align: center;
-  padding: 50px 20px 30px;
-}
+  <!-- FORM -->
+  <div class="form-box">
 
-.hero h1 {
-  font-size: 36px;
-}
+    <label>Upload Photo</label>
+    <input type="file" id="photo" accept="image/*">
 
-.hero p {
-  margin-top: 10px;
-  color: #6b7280;
-}
+    <label>Full Name</label>
+    <input type="text" id="name">
 
-/* ===== INTRO ===== */
-.intro-box {
-  max-width: 900px;
-  margin: 20px auto;
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-}
+    <label>Email</label>
+    <input type="email" id="email">
 
-/* ===== MAIN ===== */
-.container {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
+    <label>Phone</label>
+    <input type="text" id="phone">
 
-/* ===== FORM ===== */
-.form-box {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-}
+    <label>Skills</label>
+    <textarea id="skills"></textarea>
 
-.form-box label {
-  margin-top: 14px;
-  display: block;
-  font-weight: 600;
-}
+    <label>Education</label>
+    <textarea id="education"></textarea>
 
-.form-box input,
-.form-box textarea {
-  width: 100%;
-  margin-top: 6px;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-}
+    <label>About Me</label>
+    <textarea id="about"></textarea>
 
-/* ===== BUTTONS ===== */
-.form-box button {
-  width: 100%;
-  margin-top: 14px;
-  padding: 12px;
-  border-radius: 12px;
-  border: none;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-}
+    <label>Career Objective</label>
+    <textarea id="objective"></textarea>
 
-.btn-generate {
-  background: #2563eb;
-  color: white;
-}
+    <label>Strengths</label>
+    <textarea id="strengths"></textarea>
 
-.btn-generate:hover {
-  background: #1d4ed8;
-}
+    <button class="btn-generate" onclick="generateResume()">
+      Generate Resume
+    </button>
 
-.btn-download {
-  background: #10b981;
-  color: white;
-}
+    <button class="btn-download" onclick="downloadResume()">
+      Download PDF
+    </button>
 
-.btn-download:hover {
-  background: #059669;
-}
+  </div>
 
-/* ===== RESUME ===== */
-.resume {
-  background: #ffffff;
-  border-radius: 16px;
-  display: flex;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-}
+  <!-- PREVIEW -->
+  <div class="resume" id="resume">
 
-.left {
-  width: 35%;
-  background: #111827;
-  color: white;
-  padding: 22px;
-  text-align: center;
-}
+    <div class="left">
+      <img id="r-photo" src="">
+      <h3>Education</h3>
+      <p id="r-education"></p>
 
-.left img {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid white;
-  margin-bottom: 12px;
-}
+      <h3>Professional Strengths</h3>
+      <p id="r-strengths"></p>
+    </div>
 
-.left h3 {
-  margin-top: 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-}
+    <div class="right">
+      <h1 id="r-name"></h1>
+      <p id="r-email"></p>
+      <p id="r-phone"></p>
 
-.right {
-  width: 65%;
-  padding: 22px;
-}
+      <h3>About Me</h3>
+      <p id="r-about"></p>
 
-.right h1 {
-  font-size: 24px;
-}
+      <h3>Career Objective</h3>
+      <p id="r-objective"></p>
 
-.right h3 {
-  margin-top: 14px;
-  border-bottom: 2px solid #e5e7eb;
-}
+      <h3>Skills</h3>
+      <p id="r-skills"></p>
+    </div>
 
-/* ===== MOBILE ===== */
-@media (max-width: 900px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
+  </div>
 
-  .resume {
-    flex-direction: column;
-  }
+</div>
 
-  .left, .right {
-    width: 100%;
-  }
-
-  .hero h1 {
-    font-size: 28px;
-  }
-}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
